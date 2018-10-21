@@ -23,18 +23,32 @@
     "postcss": "^6.0.16"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
+    "eslint": "^5.7.0",
     "eslint-config-postcss": "^2.0.2",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "prettier": "^1.14.3"
   },
   "scripts": {
-    "test": "jest && eslint *.js"
+    "lint:prettier": "prettier '**/*.js' --list-different",
+    "lint:js": "eslint . --cache",
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "test": "jest && eslint *.js",
+    "pretest": "yarn lint"
   },
   "eslintConfig": {
-    "extends": "eslint-config-postcss/es5",
     "env": {
+      "es6": true,
+      "node": true,
       "jest": true
-    }
+    },
+    "extends": "eslint:recommended"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "testEnvironment": "node"
