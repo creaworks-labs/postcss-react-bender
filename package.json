@@ -1,0 +1,42 @@
+{
+  "name": "postcss-react-bender",
+  "version": "0.0.0",
+  "description": "PostCSS plugin to process react-bender styling features with scss like syntax.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "react",
+    "react-native",
+    "scss",
+    "jss",
+    "css-in-js"
+  ],
+  "author": "Ömer Düzyol <omer@duzyol.net>",
+  "license": "MIT",
+  "repository": "omerduzyol/postcss-react-bender",
+  "bugs": {
+    "url": "https://github.com/omerduzyol/postcss-react-bender/issues"
+  },
+  "homepage": "https://github.com/omerduzyol/postcss-react-bender",
+  "dependencies": {
+    "postcss": "^6.0.16"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^22.4.2"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
