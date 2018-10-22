@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`process component based styles 1`] = `
+Object {
+  "developer.project.view": Object {
+    "backgroundColor": "red",
+    "height": 50,
+    "width": 100,
+  },
+}
+`;
+
+exports[`process nested component based styles 1`] = `
+Object {
+  "developer.project.screen": Object {
+    ".square": Object {
+      "alignItems": "center",
+      "backgroundColor": "yellow",
+      "height": 55,
+      "justifyContent": "center",
+      "marginTop": "10pt",
+      "width": 25,
+    },
+    "developer.project.view": Object {
+      "backgroundColor": "red",
+      "height": 50,
+      "width": 100,
+    },
+    "fontSize": 25,
+  },
+}
+`;

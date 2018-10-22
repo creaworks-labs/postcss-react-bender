@@ -1,0 +1,68 @@
+@import 'import.vars.scss';
+
+@style-def circle {
+  width: $circleRadius;
+  height: $circleRadius;
+  border-radius: $circleRadius;
+  background-color: '#fff';
+  // @extend .test;
+}
+
+.test {
+  font: italic small-caps 500 12px/30px "Georgia, serif";
+  width: 333;
+  @extend '#developer.project.screen .square2'
+}
+
+#developer.project.screen {
+  .square2 {
+    margin-top: ali;
+    width: $squareSize;
+    height: $squareSize;
+    background-color: 'yellow';
+    align-items: 'center';
+    justify-content: 'center';
+  }
+
+  #developer.project.view {
+
+    #developer.project.view {
+      .nestedCircle {
+        overflow: visible;
+        // @extend circle;
+        // @extend .test;
+      }
+
+      .square {
+        margin-top: ali;
+        width: $squareSize;
+        height: $squareSize;
+        background-color: 'yellow';
+        align-items: 'center';
+        justify-content: 'center';
+      }
+  
+      .circle {
+        // composes: circle;
+        paddingHorizontal: 20;
+      }
+    }
+  }
+
+  @style-def container {
+    margin-top: 50;
+    align-items: 'center';
+    flex: 1;
+  }
+
+  @style-def title {
+    color: $baseColor;
+    font-size: $fontSize;
+  }
+
+  @style-def input {
+    width: 100;
+    height: 50;
+    background-color: 'red';
+  }
+}

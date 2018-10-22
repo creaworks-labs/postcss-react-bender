@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`process basic definitions with shorthanded props 1`] = `
+Object {
+  ".circle": Object {
+    "marginVertical": 55,
+    "paddingHorizontal": 20,
+  },
+}
+`;
+
+exports[`process pure style definition with shorthanded props 1`] = `
+Object {
+  "circle": Object {
+    "align": "center",
+    "borderBottomWidth": 50,
+    "borderLeftWidth": 50,
+    "borderRightWidth": 50,
+    "borderTopWidth": 50,
+    "fontFamily": "Georgia, serif",
+    "fontSize": 12,
+    "fontStyle": "italic",
+    "fontVariant": Array [
+      "small-caps",
+    ],
+    "fontWeight": "500",
+    "lineHeight": 30,
+  },
+}
+`;

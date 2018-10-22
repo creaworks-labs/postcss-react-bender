@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`process @extend definition in styles 1`] = `
+Object {
+  "developer.project.screen": Object {
+    ".circle": Object {
+      "alignItems": "center",
+      "backgroundColor": "yellow",
+      "justifyContent": "center",
+    },
+    "circle": Object {
+      "backgroundColor": "yellow",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "marginTop": 50,
+      "overflow": "hidden",
+    },
+    "developer.project.view": Object {
+      ".blue": Object {
+        "backgroundColor": "blue",
+      },
+      ".nestedCircle": Object {
+        "backgroundColor": "blue",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "marginTop": 50,
+        "overflow": "hidden",
+      },
+      ".square": Object {
+        "alignItems": "center",
+        "backgroundColor": "yellow",
+        "justifyContent": "center",
+      },
+    },
+  },
+}
+`;

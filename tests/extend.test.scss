@@ -1,0 +1,37 @@
+
+#developer.project.screen {
+  .circle {
+    background-color: 'yellow';
+    align-items: 'center';
+    justify-content: 'center';
+  }
+
+  #developer.project.view {
+
+
+    .nestedCircle {
+      overflow: visible;
+      @extend circle;
+      @extend .blue;
+    }
+
+    .square {
+      background-color: 'yellow';
+      align-items: 'center';
+      justify-content: 'center';
+    }
+
+    .blue {
+      background-color: 'blue';
+    }
+  }
+
+
+  @style-def circle {
+    overflow: hidden;
+    margin-top: 50;
+    background-color: 'yellow';
+    flex: 1;
+  }
+
+}
