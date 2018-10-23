@@ -1,10 +1,10 @@
 const postcss = require("postcss");
-const postscss = require('postcss-scss');
+const postscss = require("postcss-scss");
 const { readFileSync } = require("fs");
-const { resolve, dirname, filename } = require("path");
+const { resolve, dirname } = require("path");
 
 const plugin = require("..");
-const pluginOpts = { };
+const pluginOpts = {};
 const postcssOpts = { syntax: postscss };
 
 function readFile(filePath) {
@@ -16,11 +16,10 @@ function readFile(filePath) {
 }
 
 export function processFileAndExpect(inputPath, expectedOutput) {
-  
   const contents = readFile(inputPath);
 
   return postcss([plugin(pluginOpts)])
-    .process(contents, {...postcssOpts, from: inputPath })
+    .process(contents, { ...postcssOpts, from: inputPath })
     .then(result => {
       expect(result.json).toEqual(expectedOutput);
       expect(result.warnings().length).toBe(0);
@@ -28,11 +27,10 @@ export function processFileAndExpect(inputPath, expectedOutput) {
 }
 
 export function processFileAndMatchSnapshot(inputPath) {
-  
   const contents = readFile(inputPath);
 
   return postcss([plugin(pluginOpts)])
-    .process(contents, {...postcssOpts, from: inputPath })
+    .process(contents, { ...postcssOpts, from: inputPath })
     .then(result => {
       expect(result.json).toMatchSnapshot();
       expect(result.warnings().length).toBe(0);

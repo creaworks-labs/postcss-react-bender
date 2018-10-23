@@ -23,12 +23,17 @@ Object {
       ".nestedCircle": Object {
         "backgroundColor": "blue",
         "flexBasis": 0,
-        "flexGrow": 1,
+        "flexGrow": 0,
         "flexShrink": 1,
         "marginTop": 50,
         "overflow": "hidden",
       },
       ".square": Object {
+        ".min": Object {
+          "flexBasis": 0,
+          "flexGrow": 0,
+          "flexShrink": 1,
+        },
         "alignItems": "center",
         "backgroundColor": "yellow",
         "justifyContent": "center",

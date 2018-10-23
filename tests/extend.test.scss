@@ -13,12 +13,17 @@
       overflow: visible;
       @extend circle;
       @extend .blue;
+      @extend '#developer.project.screen #developer.project.view .square .min';
     }
 
     .square {
       background-color: 'yellow';
       align-items: 'center';
       justify-content: 'center';
+
+      .min {
+        flex:0;
+      }
     }
 
     .blue {

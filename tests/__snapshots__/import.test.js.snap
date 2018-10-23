@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`process complex definitions with @import directive 1`] = `
+Object {
+  ".test": Object {
+    "alignItems": "center",
+    "backgroundColor": "yellow",
+    "fontFamily": "Georgia, serif",
+    "fontSize": 12,
+    "fontStyle": "italic",
+    "fontVariant": Array [
+      "small-caps",
+    ],
+    "fontWeight": "500",
+    "height": 250,
+    "justifyContent": "center",
+    "lineHeight": 30,
+    "marginTop": "ali",
+    "width": 250,
+  },
+  "circle": Object {
+    "backgroundColor": "#fff",
+    "borderBottomLeftRadius": 100,
+    "borderBottomRightRadius": 100,
+    "borderTopLeftRadius": 100,
+    "borderTopRightRadius": 100,
+    "height": 100,
+    "width": 100,
+  },
+  "developer.project.screen": Object {
+    ".square2": Object {
+      "alignItems": "center",
+      "backgroundColor": "yellow",
+      "height": 250,
+      "justifyContent": "center",
+      "marginTop": "ali",
+      "width": 250,
+    },
+    "container": Object {
+      "alignItems": "center",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "marginTop": 50,
+    },
+    "developer.project.view": Object {
+      "developer.project.view": Object {
+        ".circle": Object {
+          "paddingHorizontal": 20,
+        },
+        ".nestedCircle": Object {
+          "overflow": "visible",
+        },
+        ".square": Object {
+          "alignItems": "center",
+          "backgroundColor": "yellow",
+          "height": 250,
+          "justifyContent": "center",
+          "marginTop": "ali",
+          "width": 250,
+        },
+      },
+    },
+    "input": Object {
+      "backgroundColor": "red",
+      "height": 50,
+      "width": 100,
+    },
+    "title": Object {
+      "color": "navy",
+      "fontSize": 18,
+    },
+  },
+}
+`;
