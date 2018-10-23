@@ -1,6 +1,3 @@
-// var postcss = require('postcss');
-
-// const postcssExtend = require('./extend');
 import postcss from "postcss";
 import pluginImports from "postcss-import";
 import pluginDefineProps from "postcss-define-property";

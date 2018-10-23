@@ -47,7 +47,7 @@
     "lint:prettier": "prettier '**/*.js' --list-different --write",
     "lint:js": "eslint . --cache",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "test": "jest && eslint *.js",
+    "test": "jest && yarn lint",
     "test:watch": "jest --watchAll",
     "pretest": "yarn lint"
   },
