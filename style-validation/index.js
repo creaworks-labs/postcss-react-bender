@@ -90,7 +90,7 @@ function checkPropTypes(typeSpecs, values, location, componentName) {
         error.componentName = componentName;
         error.location = location;
         error.values = values;
-        
+
         throw error;
         // printWarning(
         //   'Failed ' + location + ' type: ' + error.message

@@ -1,5 +1,5 @@
-const { find, isMatch, each } = require("lodash");
-
+import postcss from "postcss";
+import { find, each, reduce } from "lodash";
 import {
   RULE_TOKEN_COMPONENT,
   RULE_TOKEN_STYLE,
@@ -7,6 +7,8 @@ import {
   RULE_KEY_RULE,
   RULE_KEY_ATRULE
 } from "./const";
+
+import { isStringValue, sanitizeValue } from "./utils";
 
 function getRuleMatcherByStyleKey(styleKey) {
   const typeToken = styleKey.substr(0, 1);
@@ -26,47 +28,64 @@ function getRuleMatcherByStyleKey(styleKey) {
   }
 }
 
-module.exports = function(root) {
-  function findClosestUpwards(node, styleKey) {
-    // console.log('closest', styleKey);
-    const matched = find(node.nodes, styleRule => {
-      const matcher = getRuleMatcherByStyleKey(styleKey);
-      // console.log('m', matcher)
-      return isMatch(styleRule, matcher);
-    });
+function findClosestUpwards(root, node, styleKey) {
+  const matched = walkForStyleKey(node, styleKey);
 
-    if (!matched && node !== root) {
-      // console.log('no matches at', node.params || node.selector)
-      return findClosestUpwards(node.parent, styleKey);
-    }
-
-    return matched;
+  if (!matched && node !== root) {
+    // console.log('no matches at', node.params || node.selector)
+    return findClosestUpwards(root, node.parent, styleKey);
   }
 
-  root.walkAtRules(RULE_KEY_EXTEND, rule => {
+  return matched;
+}
 
-    //TODO: check if rule defined in right styleKey
-    const isAllowedContainer = rule.parent.type == "rule";
+function walkForStyleKey(node, styleKey) {
+  const matcher = getRuleMatcherByStyleKey(styleKey);
+  // console.log('looking', matcher, 'at', node.params || node.selector, 'for', styleKey);
 
-    if (!isAllowedContainer)
-      throw rule.error("@extend defined in wrong place.", {
-        word: rule.name || rule.params
-      });
+  return find(node.nodes, matcher);
+}
 
-    // try lookin upwards closest match
-    const upwardsMatch = findClosestUpwards(rule.parent.parent, rule.params);
+function findMatchingBySelector(origin, selector) {
+  // console.log('findMatchingBySelector', selector);
+  if (isStringValue(selector)) {
+    const selectors = sanitizeValue(selector).split(" ");
 
-    if (!upwardsMatch)
-      throw rule.error(
-        `Could not found any matches for ${rule.params} to @extend style ${rule
-          .parent.selector || rule.parent.params}.`,
-        { word: rule.name || rule.params }
-      );
+    return reduce(
+      selectors,
+      (node, selector) => walkForStyleKey(node, selector),
+      origin.root()
+    );
+  } else {
+    return findClosestUpwards(origin.root(), origin.parent.parent, selector);
+  }
+}
 
-		each(upwardsMatch.nodes, decl => {
-			rule.parent.append(decl.clone());	
-		});
+function atRules(root, rule) {
+  //TODO: check if rule defined in right styleKey
+  const isAllowedContainer = rule.parent.type == "rule";
 
-		rule.remove();
+  if (!isAllowedContainer)
+    throw rule.error("@extend defined in wrong place.", {
+      word: rule.name || rule.params
+    });
+
+  const match = findMatchingBySelector(rule, rule.params);
+
+  if (!match)
+    throw rule.error(
+      `Could not found any matches for ${rule.params} to @extend style ${rule
+        .parent.selector || rule.parent.params}.`,
+      { word: rule.name || rule.params }
+    );
+
+  each(match.nodes, decl => {
+    rule.parent.append(decl.clone());
   });
-};
+
+  rule.remove();
+}
+
+module.exports = postcss.plugin("postcss-react-bender-extend", () => root => {
+  root.walkAtRules(RULE_KEY_EXTEND, rule => atRules(root, rule));
+});

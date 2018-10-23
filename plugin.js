@@ -3,57 +3,13 @@ import { forEach, filter, reduce } from "lodash";
 
 import { validate } from "./style-validation";
 import {
-  RULE_TOKEN_COMPONENT,
-  RULE_TOKEN_STYLE,
   RULE_KEY_RULE,
   RULE_KEY_ATRULE,
   RULE_KEY_PURESTYLE,
   RULE_KEY_STYLE_PROPS
 } from "./const";
 
-const valueSanitizeRe = /^['"](.*)['"]$/;
-
-function sanitizeValue(value) {
-  if (!value) return "";
-
-  return value.trim().replace(valueSanitizeRe, "$1");
-}
-
-function getStyleKey(node) {
-  let styleKey;
-  const { type, selector, name, params } = node;
-
-  if (type === RULE_KEY_RULE) {
-    const typeToken = selector.substr(0, 1);
-
-    switch (typeToken) {
-      case RULE_TOKEN_COMPONENT:
-        styleKey = selector.substring(1);
-        break;
-      case RULE_TOKEN_STYLE:
-        styleKey = selector;
-        break;
-    }
-  } else if (type === RULE_KEY_ATRULE && name === RULE_KEY_PURESTYLE) {
-    styleKey = params;
-  }
-
-  return styleKey;
-}
-
-function getPathBreakdown(rule, root) {
-  function _resolve(node, path) {
-    const styleKey = getStyleKey(node);
-    const hasParent = node.parent && node.parent != root;
-    const paths = [styleKey, ...path];
-
-    if (hasParent) return _resolve(node.parent, paths);
-
-    return paths;
-  }
-
-  return _resolve(rule, []);
-}
+import { sanitizeValue, getStyleKey, getPathBreakdown } from "./utils";
 
 function processStyleProps(opts, styleKey, declarations) {
   // if (declarations == null || declarations.length == 0)
@@ -84,8 +40,10 @@ function processStyleProps(opts, styleKey, declarations) {
     // console.log('styles', styleKey, processedProps);
     validate(styleKey, processedProps);
   } catch (error) {
-
-    throw declarations[0].parent.error("Parser validation error. " + error.message, { word: error.typeSpecName });
+    throw declarations[0].parent.error(
+      "Parser validation error. " + error.message,
+      { word: error.typeSpecName }
+    );
   }
 
   return processedProps;
