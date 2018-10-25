@@ -19,6 +19,14 @@
     "url": "https://github.com/omerduzyol/postcss-react-bender/issues"
   },
   "homepage": "https://github.com/omerduzyol/postcss-react-bender",
+  "main": "index.cjs.js",
+  "module": "index.es.mjs",
+  "files": [
+    "index.cjs.js",
+    "index.cjs.js.map",
+    "index.es.mjs",
+    "index.es.mjs.map"
+  ],
   "dependencies": {
     "css-to-react-native": "^2.2.2",
     "lodash": "^4.17.11",
@@ -31,25 +39,29 @@
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "eslint": "^5.7.0",
     "eslint-config-postcss": "^2.0.2",
     "jest": "^22.4.2",
     "postcss-scss": "^2.0.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3"
   },
   "scripts": {
-    "lint:prettier": "prettier '**/*.js' --list-different --write",
-    "lint:js": "eslint . --cache",
+    "prepublishOnly": "yarn test",
+    "lint:prettier": "prettier 'lib/*.js' 'tests/*.js' --list-different --write",
+    "lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "test": "jest && yarn lint",
+    "test": "jest",
     "test:watch": "jest --watchAll",
-    "pretest": "yarn lint"
+    "rollup": "rollup -c .rollup.js --silent",
+    "pretest": "yarn lint && yarn rollup"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

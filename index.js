@@ -5,8 +5,8 @@ import pluginNestedVars from "postcss-nested-vars";
 import pluginAtFor from "postcss-for";
 import pluginAtIf from "postcss-conditionals";
 
-import extendInternal from "./extend";
-import { atRules, rules } from "./plugin";
+import extendInternal from "./lib/extend";
+import { atRules, rules } from "./lib/plugin";
 
 module.exports = postcss.plugin("postcss-react-bender", function(opts) {
   opts = opts || {};
