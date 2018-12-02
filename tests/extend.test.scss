@@ -1,19 +1,18 @@
 
-#developer.project.screen {
+#Screen {
   .circle {
     background-color: 'yellow';
     align-items: 'center';
     justify-content: 'center';
   }
 
-  #developer.project.view {
-
+  #View {
 
     .nestedCircle {
       overflow: visible;
       @extend circle;
       @extend .blue;
-      @extend '#developer.project.screen #developer.project.view .square .min';
+      @extend '#Screen #View .square .min';
     }
 
     .square {

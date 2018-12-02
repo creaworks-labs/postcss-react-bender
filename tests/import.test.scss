@@ -11,10 +11,10 @@
 .test {
   font: italic small-caps 500 12px/30px "Georgia, serif";
   width: 333;
-  @extend '#developer.project.screen .square2'
+  @extend '#Screen .square2'
 }
 
-#developer.project.screen {
+#Screen {
   .square2 {
     margin-top: ali;
     width: $squareSize;
@@ -24,9 +24,9 @@
     justify-content: 'center';
   }
 
-  #developer.project.view {
+  #View {
 
-    #developer.project.view {
+    #View {
       .nestedCircle {
         overflow: visible;
         // @extend circle;

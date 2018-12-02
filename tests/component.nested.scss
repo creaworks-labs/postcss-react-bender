@@ -1,4 +1,4 @@
-#developer.project.screen {
+#Screen {
   font-size: 25;
 
   .square {
@@ -10,9 +10,20 @@
     justify-content: 'center';
   }
 
-  #developer.project.view {
+  #View {
     width: 100;
     height: 50;
     background-color: 'red';
+  }
+
+  #Text.underline {
+    text-decoration: underline;
+    font-size: 20px;
+  }
+}
+
+#Text {
+  .underline {
+    text-decoration: underline;
   }
 }
