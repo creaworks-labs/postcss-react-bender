@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`process component based styles 1`] = `
+exports[`process basic component styles 1`] = `
 Object {
-  "developer.project.view": Object {
+  "View": Object {
     "backgroundColor": "red",
     "height": 50,
     "width": 100,
@@ -12,7 +12,7 @@ Object {
 
 exports[`process nested component based styles 1`] = `
 Object {
-  "developer.project.screen": Object {
+  "Screen": Object {
     ".square": Object {
       "alignItems": "center",
       "backgroundColor": "yellow",
@@ -21,12 +21,25 @@ Object {
       "marginTop": "10pt",
       "width": 25,
     },
-    "developer.project.view": Object {
+    "Text.underline": Object {
+      "fontSize": 20,
+      "textDecorationColor": "black",
+      "textDecorationLine": "underline",
+      "textDecorationStyle": "solid",
+    },
+    "View": Object {
       "backgroundColor": "red",
       "height": 50,
       "width": 100,
     },
     "fontSize": 25,
+  },
+  "Text": Object {
+    ".underline": Object {
+      "textDecorationColor": "black",
+      "textDecorationLine": "underline",
+      "textDecorationStyle": "solid",
+    },
   },
 }
 `;

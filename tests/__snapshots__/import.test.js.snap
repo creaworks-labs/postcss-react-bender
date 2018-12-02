@@ -18,16 +18,7 @@ Object {
     "marginTop": "ali",
     "width": 250,
   },
-  "circle": Object {
-    "backgroundColor": "#fff",
-    "borderBottomLeftRadius": 100,
-    "borderBottomRightRadius": 100,
-    "borderTopLeftRadius": 100,
-    "borderTopRightRadius": 100,
-    "height": 100,
-    "width": 100,
-  },
-  "developer.project.screen": Object {
+  "Screen": Object {
     ".square2": Object {
       "alignItems": "center",
       "backgroundColor": "yellow",
@@ -36,15 +27,8 @@ Object {
       "marginTop": "ali",
       "width": 250,
     },
-    "container": Object {
-      "alignItems": "center",
-      "flexBasis": 0,
-      "flexGrow": 1,
-      "flexShrink": 1,
-      "marginTop": 50,
-    },
-    "developer.project.view": Object {
-      "developer.project.view": Object {
+    "View": Object {
+      "View": Object {
         ".circle": Object {
           "paddingHorizontal": 20,
         },
@@ -61,6 +45,13 @@ Object {
         },
       },
     },
+    "container": Object {
+      "alignItems": "center",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "marginTop": 50,
+    },
     "input": Object {
       "backgroundColor": "red",
       "height": 50,
@@ -70,6 +61,15 @@ Object {
       "color": "navy",
       "fontSize": 18,
     },
+  },
+  "circle": Object {
+    "backgroundColor": "#fff",
+    "borderBottomLeftRadius": 100,
+    "borderBottomRightRadius": 100,
+    "borderTopLeftRadius": 100,
+    "borderTopRightRadius": 100,
+    "height": 100,
+    "width": 100,
   },
 }
 `;
