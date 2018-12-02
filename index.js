@@ -11,8 +11,6 @@ import { atRules, rules } from "./lib/plugin";
 module.exports = postcss.plugin("postcss-react-bender", function(opts) {
   opts = opts || {};
 
-  let tree = {};
-
   return postcss([
     pluginImports,
     pluginDefineProps,
@@ -21,9 +19,11 @@ module.exports = postcss.plugin("postcss-react-bender", function(opts) {
     pluginAtIf,
     extendInternal
   ]).use((root, result) => {
+    let tree = {};
+
     root.walkAtRules(rule => atRules(opts, { root, rule, tree }));
     root.walkRules(rule => rules(opts, { root, rule, tree }));
 
-    result.json = tree;
+    result.bender = tree;
   });
 });
