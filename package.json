@@ -55,9 +55,10 @@
   },
   "scripts": {
     "prepublishOnly": "yarn test",
-    "lint:prettier": "prettier 'lib/*.js' 'tests/*.js' --list-different --write",
+    "lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+    "lint:prettier": "yarn prettier-quite --list-different",
     "lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
-    "lint": "yarn lint:js && yarn lint:prettier",
+    "lint": "yarn lint:js && yarn lint:prettier-quite",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "rollup": "rollup -c .rollup.js --silent",
