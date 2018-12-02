@@ -21,7 +21,7 @@ export function processFileAndExpect(inputPath, expectedOutput) {
   return postcss([plugin(pluginOpts)])
     .process(contents, { ...postcssOpts, from: inputPath })
     .then(result => {
-      expect(result.json).toEqual(expectedOutput);
+      expect(result.bender).toEqual(expectedOutput);
       expect(result.warnings().length).toBe(0);
     });
 }
@@ -32,7 +32,7 @@ export function processFileAndMatchSnapshot(inputPath) {
   return postcss([plugin(pluginOpts)])
     .process(contents, { ...postcssOpts, from: inputPath })
     .then(result => {
-      expect(result.json).toMatchSnapshot();
+      expect(result.bender).toMatchSnapshot();
       expect(result.warnings().length).toBe(0);
     });
 }

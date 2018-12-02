@@ -1,6 +1,6 @@
 var { processFileAndMatchSnapshot } = require("./utils");
 
-it("process component based styles", () => {
+it("process basic component styles", () => {
   return processFileAndMatchSnapshot("./tests/component.basic.scss");
 });
 
