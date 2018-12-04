@@ -3,8 +3,8 @@
 exports[`process pure style definition with shorthanded props 1`] = `
 Object {
   "circle": Object {
-    "align": "center",
-    "borderBottomWidth": 50,
+    "alignSelf": "center",
+    "borderBottomWidth": 1,
     "borderLeftWidth": 50,
     "borderRightWidth": 50,
     "borderTopWidth": 50,
