@@ -1,0 +1,13 @@
+#Text {
+  background-color: 'gray';
+
+  // applicable to all items in child tree (direct children)
+  * {
+    padding-vertical: 20px;
+  }
+
+  // applicable to items which has .container in child tree (direct children)
+  *.container {
+    margin: 10px;
+  }
+}
