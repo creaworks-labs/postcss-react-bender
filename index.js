@@ -9,16 +9,18 @@ import extendInternal from "./lib/extend";
 import { atRules, rules } from "./lib/plugin";
 
 /**
- * opts: { allowShorthands: ?boolean }
+ * opts: { allowShorthands: ?boolean, webpack: ?boolean }
  */
 module.exports = postcss.plugin("postcss-react-bender", function(opts) {
-  const pluginOptions = { allowShorthand:true, ...opts };
+  const pluginOptions = { allowShorthand:true, webpack:false, ...opts };
 
   return postcss([
     pluginImports,
     pluginDefineProps,
     pluginNestedVars,
-    pluginAtFor,
+    pluginAtFor({
+      resolve: pluginOptions.webpack ? require('./resolve-id'): undefined
+    }),
     pluginAtIf,
     extendInternal
   ]).use((root, result) => {
