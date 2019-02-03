@@ -14,11 +14,11 @@
   ],
   "author": "Ömer Düzyol <omer@duzyol.net>",
   "license": "MIT",
-  "repository": "omerduzyol/postcss-react-bender",
+  "repository": "creaworks-labs/postcss-react-bender",
   "bugs": {
-    "url": "https://github.com/omerduzyol/postcss-react-bender/issues"
+    "url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
   },
-  "homepage": "https://github.com/omerduzyol/postcss-react-bender",
+  "homepage": "https://github.com/creaworks-labs/postcss-react-bender",
   "main": "index.cjs.js",
   "module": "index.es.mjs",
   "files": [
