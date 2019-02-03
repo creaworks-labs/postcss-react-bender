@@ -4,7 +4,7 @@ const { readFileSync } = require("fs");
 const { resolve, dirname } = require("path");
 
 const plugin = require("..");
-const pluginOpts = {};
+const pluginOpts = { webpack: true };
 const postcssOpts = { syntax: postscss };
 
 function readFile(filePath) {

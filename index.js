@@ -6,7 +6,7 @@ import pluginAtFor from "postcss-for";
 import pluginAtIf from "postcss-conditionals";
 
 import extendInternal from "./lib/extend";
-import { atRules, rules } from "./lib/plugin";
+import { atRules, rules, cleanup } from "./lib/plugin";
 
 /**
  * opts: { allowShorthands: ?boolean, webpack: ?boolean }
@@ -26,8 +26,9 @@ module.exports = postcss.plugin("postcss-react-bender", function(opts) {
   ]).use((root, result) => {
     let tree = {};
 
-    root.walkAtRules(rule => atRules(pluginOptions, { root, rule, tree }));
-    root.walkRules(rule => rules(pluginOptions, { root, rule, tree }));
+    root.walkAtRules(rule => atRules({ rule, tree }, pluginOptions));
+    root.walkRules(rule => rules({ rule, tree }, pluginOptions));
+    root.walkRules(rule => cleanup(rule, pluginOptions));
 
     result.bender = tree;
   });
