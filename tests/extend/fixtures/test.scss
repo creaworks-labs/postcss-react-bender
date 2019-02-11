@@ -1,6 +1,31 @@
+#Screen:active {
+  background-color: black;
+}
 
 #Screen {
+  :blur {
+    display: flex;
+  }
+}
+
+#Screen {    
+  :focus {
+    font-weight: 500;
+  }
+
+  flex:1;
+  background-color: aqua;
+  align-items: baseline;
+
+  input[type="text"]:disabled {
+    background-color: green;
+    font-size:34px;
+  }
+
   .circle {
+    :hover::after {
+      width:500px;
+    }
     background-color: 'yellow';
     align-items: 'center';
     justify-content: 'center';
@@ -12,7 +37,7 @@
       overflow: visible;
       @extend circle;
       @extend .blue;
-      @extend '#Screen #View .square .min';
+      // @extend '#Screen #View .square .min';
     }
 
     .square {
