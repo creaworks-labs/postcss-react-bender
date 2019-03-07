@@ -1,15 +1,15 @@
-#Screen:active {
-  background-color: black;
-}
-
 #Screen {
-  :blur {
+  * {
+    background-color: black;
+  }
+
+  @css-selector :blur {
     display: flex;
   }
 }
 
 #Screen {    
-  :focus {
+  @css-selector :focus {
     font-weight: 500;
   }
 
@@ -17,13 +17,13 @@
   background-color: aqua;
   align-items: baseline;
 
-  input[type="text"]:disabled {
+  @css-selector input[type="text"]:disabled {
     background-color: green;
     font-size:34px;
   }
 
   .circle {
-    :hover::after {
+    @css-selector :hover::after {
       width:500px;
     }
     background-color: 'yellow';

@@ -63,7 +63,8 @@
     "lint": "yarn lint:js && yarn lint:prettier-quite",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:debug": "yarn pretest && node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test:debug": "yarn rollup && node --inspect-brk node_modules/.bin/jest --runInBand",
+    "debug": "yarn rollup && jest --runInBand --no-cache",
     "rollup": "rollup -c .rollup.js --silent",
     "pretest": "yarn lint && yarn rollup"
   },

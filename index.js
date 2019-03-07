@@ -26,6 +26,7 @@ module.exports = postcss.plugin("postcss-react-bender", function(opts) {
   ]).use((root, result) => {
     let tree = {};
 
+    // process all atrule typed nodes
     root.walkAtRules(rule => atRules({ rule, tree }, pluginOptions));
     root.each(rule => rulesPreprocess({ rule, tree }, pluginOptions));
     root.walkRules(rule => rules({ rule, tree }, pluginOptions));
