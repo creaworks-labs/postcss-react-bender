@@ -1,12 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`process @extend definition in styles 1`] = `
+exports[`at-rule @extend process @extend definition in styles - css 1`] = `
 Object {
   "Screen": Object {
+    "*": Object {
+      "__class": ".test__Screen_-asterisk-__10qoXc",
+    },
     ".circle": Object {
+      ":hover::after": Object {
+        "__class": ".test__Screen_-circle__2Sidkz :hover::after",
+      },
+      "__class": ".test__Screen_-circle__2Sidkz",
+    },
+    ":blur": Object {
+      "__class": ".test__Screen__2pNbbU :blur",
+    },
+    ":focus": Object {
+      "__class": ".test__Screen__2pNbbU :focus",
+    },
+    "View": Object {
+      ".blue": Object {
+        "__class": ".test__Screen_View_-blue__1gTMyT",
+      },
+      ".nestedCircle": Object {
+        "__class": ".test__Screen_View_-nestedCircle__3rkvST",
+      },
+      ".square": Object {
+        ".min": Object {
+          "__class": ".test__Screen_View_-square_-min__2BRJJP",
+        },
+        "__class": ".test__Screen_View_-square__1Fq_d2",
+      },
+      "__class": ".test__Screen_View__3twP5o",
+    },
+    "__class": ".test__Screen__2pNbbU",
+    "circle": Object {
+      "__class": ".test__Screen_circle__31kaKC",
+    },
+    "input[type=\\"text\\"]:disabled": Object {
+      "__class": ".test__Screen__2pNbbU input[type=\\"text\\"]:disabled",
+    },
+  },
+}
+`;
+
+exports[`at-rule @extend process @extend definition in styles - css 2`] = `
+".test__Screen__2pNbbU :blur {display: flex
+}
+
+.test__Screen__2pNbbU :focus {font-weight: 500
+}
+
+.test__Screen__2pNbbU input[type=\\"text\\"]:disabled {background-color: green;font-size: 34
+}
+
+.test__Screen_-circle__2Sidkz :hover::after {width: 500
+}
+
+.test__Screen_circle__31kaKC {overflow: hidden;margin-top: 50;background-color: yellow;flex-grow: 1;flex-shrink: 1;flex-basis: 0
+}
+
+.test__Screen__2pNbbU {flex-grow: 1;flex-shrink: 1;flex-basis: 0;background-color: aqua;align-items: baseline
+}
+
+.test__Screen_-asterisk-__10qoXc {background-color: black
+}
+
+.test__Screen_-circle__2Sidkz {background-color: yellow;align-items: center;justify-content: center
+}
+
+.test__Screen_View_-nestedCircle__3rkvST {overflow: hidden;margin-top: 50;background-color: blue;flex-grow: 1;flex-shrink: 1;flex-basis: 0
+}
+
+.test__Screen_View_-square__1Fq_d2 {background-color: yellow;align-items: center;justify-content: center
+}
+
+.test__Screen_View_-square_-min__2BRJJP {flex-grow: 0;flex-shrink: 1;flex-basis: 0
+}
+
+.test__Screen_View_-blue__1gTMyT {background-color: blue
+}"
+`;
+
+exports[`at-rule @extend process @extend definition in styles 1`] = `
+Object {
+  "Screen": Object {
+    "*": Object {
+      "backgroundColor": "black",
+    },
+    ".circle": Object {
+      ":hover::after": Object {
+        "width": 500,
+      },
       "alignItems": "center",
       "backgroundColor": "yellow",
       "justifyContent": "center",
+    },
+    ":blur": Object {
+      "display": "flex",
+    },
+    ":focus": Object {
+      "fontWeight": "500",
     },
     "View": Object {
       ".blue": Object {
@@ -15,7 +109,7 @@ Object {
       ".nestedCircle": Object {
         "backgroundColor": "blue",
         "flexBasis": 0,
-        "flexGrow": 0,
+        "flexGrow": 1,
         "flexShrink": 1,
         "marginTop": 50,
         "overflow": "hidden",
@@ -31,6 +125,8 @@ Object {
         "justifyContent": "center",
       },
     },
+    "alignItems": "baseline",
+    "backgroundColor": "aqua",
     "circle": Object {
       "backgroundColor": "yellow",
       "flexBasis": 0,
@@ -38,6 +134,13 @@ Object {
       "flexShrink": 1,
       "marginTop": 50,
       "overflow": "hidden",
+    },
+    "flexBasis": 0,
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "input[type=\\"text\\"]:disabled": Object {
+      "backgroundColor": "green",
+      "fontSize": 34,
     },
   },
 }

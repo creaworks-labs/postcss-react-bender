@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`process asterisk-ed component alternate styles 1`] = `
+exports[`component styles process asterisk-ed component alternate styles 1`] = `
 Object {
   "Text": Object {
     "*": Object {
@@ -17,7 +17,7 @@ Object {
 }
 `;
 
-exports[`process basic component styles 1`] = `
+exports[`component styles process basic component styles 1`] = `
 Object {
   "View": Object {
     "backgroundColor": "red",
@@ -27,7 +27,7 @@ Object {
 }
 `;
 
-exports[`process nested component based styles 1`] = `
+exports[`component styles process nested component based styles 1`] = `
 Object {
   "Screen": Object {
     ".square": Object {
