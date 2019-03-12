@@ -1,6 +1,6 @@
 {
   "name": "postcss-react-bender",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
   "keywords": [
     "postcss",
@@ -29,6 +29,8 @@
   ],
   "dependencies": {
     "css-to-react-native": "^2.2.2",
+    "fbjs": "^0.8.5",
+    "loader-utils": "^1.1.0",
     "lodash": "^4.17.11",
     "postcss": "^6.0.16",
     "postcss-conditionals": "^2.1.0",
@@ -36,9 +38,7 @@
     "postcss-for": "^2.1.1",
     "postcss-import": "^12.0.0",
     "postcss-nested-vars": "^1.0.0",
-    "prop-types": "^15.6.2",
-    "fbjs": "^0.8.5",
-    "loader-utils": "^1.1.0"
+    "prop-types": "^15.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
